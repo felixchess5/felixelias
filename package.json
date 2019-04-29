@@ -1,9 +1,10 @@
 {
-  "name": "gatsby-starter-dimension-v2",
-  "description": "Gatsby Starter - Dimension V2",
+  "name": "felixelias.com",
+  "description": "Felix Elias Online Portfolio",
   "version": "1.0.0",
-  "author": "Hunter Chang",
+  "author": "Felix Elias",
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^5.8.1",
     "gatsby": "^2.2.9",
     "gatsby-plugin-manifest": "^2.0.24",
     "gatsby-plugin-offline": "^2.0.25",
@@ -12,23 +13,30 @@
     "node-sass": "^4.11.0",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
+    "react-fontawesome": "^1.6.1",
     "react-helmet": "^5.2.0"
   },
   "keywords": [
-    "gatsby"
+    "felix elias",
+    "online portfolio",
+    "technology",
+    "AI"
   ],
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "develop": "gatsby develop",
     "format": "prettier --write '**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.8.1",
+    "gh-pages": "^2.0.1",
     "prettier": "^1.14.2"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/felixchess5/felixelias.git"
   }
 }

@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import pic01 from '../images/pic01.jpg'
-import pic02 from '../images/pic02.jpg'
-import pic03 from '../images/pic03.jpg'
+import me from '../images/Me.jpg'
+import work from '../images/work.jpg'
+import universities from '../images/Universities.png'
 
 class Main extends React.Component {
   render() {
@@ -13,35 +13,67 @@ class Main extends React.Component {
     return (
       <div ref={this.props.setWrapperRef} id="main" style={this.props.timeout ? {display: 'flex'} : {display: 'none'}}>
 
-        <article id="intro" className={`${this.props.article === 'intro' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
-          <h2 className="major">Intro</h2>
-          <span className="image main"><img src={pic01} alt="" /></span>
-          <p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. By the way, check out my <a href="#work">awesome work</a>.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+        <article id="about" className={`${this.props.article === 'about' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
+          <h2 className="major">About</h2>
+          <p>Felix is a Technology Consultant based out of the New York area. He has more than 5 years industry experience, with more than 3 years experience in the Intelligent Automation space. He also has experience in other areas such as Artificial Intelligence, Business Intelligence, Data Bases, and Software Development.</p>
+          <p>During his free time, he enjoys traveling and playing chess both recreational and competitive. He is very passionate about latest technology trends and enjoys trying new technology gadgets.</p>
+          <span className="image main"><img src={me} alt="Myself" /></span>
           {close}
         </article>
 
         <article id="work" className={`${this.props.article === 'work' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
           <h2 className="major">Work</h2>
-          <span className="image main"><img src={pic02} alt="" /></span>
-          <p>Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices.</p>
-          <p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet feugiat tempus.</p>
+          <p>Felix Elias is a Technology Consultant at Accenture. He is part of the Financial Services Industry from the Regulatory &amp; Compliance Practice. He specializes in Intelligent Automation and technology.</p>
+          <h2 className="major">Projects</h2>
+          <p><b>Robotic Process Automation (RPA) - UiPath Architect and Lead Developer</b> <br /> We analyzed the current infrastructure of an international bank and prepared it for Robotic Process Automation using UiPath. We also developed their first robot and created a factory readiness.<br /><br /> <b>Key Activities:</b>
+              <ul>
+                  <li>Infrastructure analysis to deliver a new RPA solution</li>
+                  <li>Work with client leadership to deliver a successful RPA Proof of Concept</li>
+                  <li>Deliver software solution in a version short timeframe window</li>
+                  <li>Train personnel in RPA for basic troubleshooting and handling of the robot</li>
+              </ul> 
+          </p>
+
+          <p><b>Robotic Process Automation (RPA) - Blue Prism Business Analyst and Developer</b> <br /> We created the first Proof of Concept for an international bank. After a successful PoC, we also created a factory to automate their pipeline.<br /><br /> <b>Key Activities:</b>
+              <ul>
+                  <li>Managed a small team of on-shore and off-shore resources</li>
+                  <li>Direct communication with senior Stakeholders</li>
+                  <li>Work with the client lead to manage the pipeline and deliver processes</li>
+                  <li>Gather user requirements and synthetize them into RPA solutions</li>
+                  <li>Implement RPA solutions that would satisfy those requirements</li>
+                  <li>Analyze and solve complex infrastructure issues</li>
+                  <li>Integrate SharePoint solutions into RPA</li>
+              </ul> 
+          </p>
+
+          <p><b>Credit Risk Data Warehouse – Business Analyst and Developer</b> <br /> We worked hand to hand with one of the biggest European banks to create and manage a Credit Risk Data Warehouse.<br /><br /> <b>Key Activities:</b>
+              <ul>
+                  <li>Data Quality analysis and validation in different environments</li>
+                  <li>Design, implement, and test interfaces for US local and external feeders</li>
+                  <li>Validation and testing of ETL solutions using Informatica tools.</li>
+                  <li>Analysis and maintenance of batch scripts</li>
+                  <li>Creation and alteration of Database schemas to match them to business requirements</li>
+                  <li>Analysis of complex solutions and their implementation to ensure QA</li>
+              </ul> 
+          </p>
+          <span className="image main"><img src={work} alt="work" /></span>
           {close}
         </article>
 
-        <article id="about" className={`${this.props.article === 'about' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
-          <h2 className="major">About</h2>
-          <span className="image main"><img src={pic03} alt="" /></span>
-          <p>Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices. Aliquam libero et malesuada fames ac ante ipsum primis in faucibus. Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit amet.</p>
+        <article id="education" className={`${this.props.article === 'education' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
+          <h2 className="major">Education</h2>
+          <p><b>Master of Science in Computer Information Systems</b> <br /> Concentration in Security, Business Intelligence and Databases <br /> Boston University, Boston, MA <br /> Graduated in September 2017</p> 
+          <p><b>Bachelor of Science in Computer Engineering</b> <br /> Universidad del Turabo, Gurabo, PR <br /> Graduated in June 2014</p>
+          <span className="image main"><img src={universities} alt="Universities" /></span>
           {close}
         </article>
 
         <article id="contact" className={`${this.props.article === 'contact' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
           <h2 className="major">Contact</h2>
-          <form method="post" action="#">
+          <form method="post" action="https://formspree.io/felixelias5@gmail.com">
             <div className="field half first">
               <label htmlFor="name">Name</label>
-              <input type="text" name="name" id="name" />
+              <input type="text" name="Name" id="name" />
             </div>
             <div className="field half">
               <label htmlFor="email">Email</label>
@@ -52,15 +84,14 @@ class Main extends React.Component {
               <textarea name="message" id="message" rows="4"></textarea>
             </div>
             <ul className="actions">
-              <li><input type="submit" value="Send Message" className="special" /></li>
+              <li><input type="submit" name="submit" value="submit" className="special" /></li>
               <li><input type="reset" value="Reset" /></li>
             </ul>
           </form>
           <ul className="icons">
-            <li><a href="#" className="icon fa-twitter"><span className="label">Twitter</span></a></li>
-            <li><a href="#" className="icon fa-facebook"><span className="label">Facebook</span></a></li>
-            <li><a href="#" className="icon fa-instagram"><span className="label">Instagram</span></a></li>
-            <li><a href="#" className="icon fa-github"><span className="label">GitHub</span></a></li>
+              <li><a href="https://www.linkedin.com/in/felixelias5/" className="icon fa fa-linkedin"><span className="label">Linkedin</span></a></li>
+              <li><a href="https://twitter.com/felixchess5" className="icon fa-twitter"><span className="label">Twitter</span></a></li>
+              <li><a href="https://github.com/felixchess5" className="icon fa-github"><span className="label">Github</span></a></li>
           </ul>
           {close}
         </article>
