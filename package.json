@@ -1,6 +1,6 @@
 {
   "name": "felixelias.com",
-  "description": "Felix Elias Online Portfolio",
+  "description": "Felix Elias Online Credentials",
   "version": "1.0.0",
   "author": "Felix Elias",
   "dependencies": {
@@ -18,7 +18,7 @@
   },
   "keywords": [
     "felix elias",
-    "online portfolio",
+    "online credentials",
     "technology",
     "AI"
   ],
