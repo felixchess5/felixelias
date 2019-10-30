@@ -21,8 +21,8 @@ class Main extends React.Component {
           {close}
         </article>
 
-        <article id="work" className={`${this.props.article === 'work' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
-          <h2 className="major">Work</h2>
+        <article id="experience" className={`${this.props.article === 'experience' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
+          <h2 className="major">Experience</h2>
           <p>Felix Elias is a Technology Consultant at Accenture. He is part of the Financial Services Industry from the Regulatory &amp; Compliance Practice. He specializes in Intelligent Automation and technology.</p>
           <h2 className="major">Projects</h2>
           <p><b>Robotic Process Automation (RPA) - UiPath Architect and Lead Developer</b> <br /> We analyzed the current infrastructure of an international bank and prepared it for Robotic Process Automation using UiPath. We also developed their first robot and created a factory readiness.<br /><br /> <b>Key Activities:</b>
@@ -64,7 +64,7 @@ class Main extends React.Component {
           <h2 className="major">Education</h2>
           <p><b>Master of Science in Computer Information Systems</b> <br /> Concentration in Security, Business Intelligence and Databases <br /> Boston University, Boston, MA <br /> Graduated in September 2017</p> 
           <p><b>Bachelor of Science in Computer Engineering</b> <br /> Universidad del Turabo, Gurabo, PR <br /> Graduated in June 2014</p>
-          <span className="image main"><img src={universities} alt="Universities" /></span>
+          <span className="image main"> <img src={universities} alt="Universities" /></span>
           {close}
         </article>
 

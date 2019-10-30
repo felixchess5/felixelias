@@ -33,8 +33,8 @@
 				display: block;
 				position: absolute;
 				top: calc(-3.5rem - 1px);
-				left: calc(50% - #{_size(border-width) * 1});
-				width: _size(border-width);
+				left: calc(50.1% - #{_size(border-width) * 1});
+				width: _size(border-width)+0.2;
 				height: calc(3.5rem + 1px);
 				background: _palette(border);
 			}
@@ -116,7 +116,7 @@
 						min-width: 8.2rem;
 						height: 2.75rem;
 						line-height: 2.75rem;
-						padding: 0 1.15rem 0 (1.25rem + _font(letter-spacing));
+						padding: 1 1.15rem 1 (1.25rem + _font(letter-spacing));
 						text-transform: uppercase;
 						letter-spacing: _font(letter-spacing);
 						font-size: 0.8rem;

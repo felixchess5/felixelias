@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: "Felix Elias - felixelias.com",
     author: "Felix Elias",
-    description: "Felix Elias Portfolio and Credentials"
+    description: "Felix Elias Portfolio"
   },
   plugins: [
     'gatsby-plugin-react-helmet',

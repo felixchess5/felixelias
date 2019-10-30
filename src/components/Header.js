@@ -11,13 +11,14 @@ const Header = (props) => (
         <div className="content">
             <div className="inner">
                 <h1>Felix Elias</h1>
-                <p>Online Credentials</p>
+                <p>Online Portfolio</p>
+                <p>Click <a href='#'>here</a> for a download version</p>
             </div>
         </div>
         <nav>
             <ul>
                 <li><a href="javascript:;" onClick={() => {props.onOpenArticle('about')}}>About</a></li>
-                <li><a href="javascript:;" onClick={() => {props.onOpenArticle('work')}}>Work</a></li>
+                <li><a href="javascript:;" onClick={() => {props.onOpenArticle('experience')}}>Experience</a></li>
                 <li><a href="javascript:;" onClick={() => {props.onOpenArticle('education')}}>Education</a></li>
                 <li><a href="javascript:;" onClick={() => {props.onOpenArticle('contact')}}>Contact</a></li>
             </ul>
