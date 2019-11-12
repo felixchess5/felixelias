@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import me from '../images/Me.jpg'
 import work from '../images/work.jpg'
-import universities from '../images/Universities.png'
+import universities from '../images/Universities.webp'
 
 class Main extends React.Component {
   render() {
@@ -15,16 +15,34 @@ class Main extends React.Component {
 
         <article id="about" className={`${this.props.article === 'about' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
           <h2 className="major">About</h2>
-          <p>Felix is a Technology Consultant based out of the New York area. He has more than 5 years industry experience, with more than 3 years experience in the Intelligent Automation space. He also has experience in other areas such as Artificial Intelligence, Business Intelligence, Data Bases, and Software Development.</p>
-          <p>During his free time, he enjoys traveling and playing chess both recreational and competitive. He is very passionate about latest technology trends and enjoys trying new technology gadgets.</p>
+          <p>Felix is a Technology Consulting Manager based out of the New York area. He has more than 5 years industry experience, with more than 3 years experience in the Intelligent Automation space. He also has experience in other areas such as Artificial Intelligence, Business Intelligence, Data Bases, and Software Development.</p>
+          <p>During his free time, he enjoys traveling and playing chess both recreational and competitive. He also enjoys programming and working on personal projects. He is very passionate about latest technology trends and enjoys trying new technology devices.</p>
           <span className="image main"><img src={me} alt="Myself" /></span>
           {close}
         </article>
 
         <article id="experience" className={`${this.props.article === 'experience' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
           <h2 className="major">Experience</h2>
-          <p>Felix Elias is a Technology Consultant at Accenture. He is part of the Financial Services Industry from the Regulatory &amp; Compliance Practice. He specializes in Intelligent Automation and technology.</p>
+          <p>Felix Elias is a Technology Consulting Manager at Accenture. He is part of the Financial Services Industry from the Regulatory &amp; Compliance Practice. He specializes in Intelligent Automation and technology.</p>
           <h2 className="major">Projects</h2>
+          <p><b>Robotic Process Automation (RPA) Delivery Lead - UiPath</b> <br /> In charge of the design and delivery of bots by following best practices<br /><br /> <b>Key Activities:</b>
+              <ul>
+                  <li>Manage the creation and delivery of RPA Bots using UiPath</li>
+                  <li>Create and deliver bot documentation</li>
+                  <li>Manage Off-Shore resources for the implementation</li>
+                  <li>Setup best practices for CoE</li>
+                  <li>Provide recommendations for roles and segregation of duties</li>
+              </ul> 
+          </p>
+
+          <p><b>Intelligent Automation Assessment - RPA SME </b> <br /> We performed an assessment of processes to determine automation potential.<br /><br /> <b>Key Activities:</b>
+              <ul>
+                  <li>Analyzed over 200 applications</li>
+                  <li>Determined automation potential and shortlist applications</li>
+                  <li>Created a pipeline of implementation and a roadmap</li>
+                  <li>Estimated implementation ROIs, and calculated 3Y and 5Y PNLs</li>
+              </ul> 
+          </p>
           <p><b>Robotic Process Automation (RPA) - UiPath Architect and Lead Developer</b> <br /> We analyzed the current infrastructure of an international bank and prepared it for Robotic Process Automation using UiPath. We also developed their first robot and created a factory readiness.<br /><br /> <b>Key Activities:</b>
               <ul>
                   <li>Infrastructure analysis to deliver a new RPA solution</li>
