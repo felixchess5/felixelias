@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import me from '../images/Me.jpg'
-import work from '../images/work.jpg'
+import work from '../images/work.webp'
 import universities from '../images/Universities.webp'
 
 class Main extends React.Component {
