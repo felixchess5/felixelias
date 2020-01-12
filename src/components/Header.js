@@ -12,7 +12,11 @@ const Header = (props) => (
             <div className="inner">
                 <h1>Felix Elias</h1>
                 <p>Online Portfolio</p>
+<<<<<<< HEAD
                 <p>Click <a href='https://felixelias.com/documents/Felix_Elias_Portfolio.docx'>here</a> for a download version</p> 
+=======
+                <p>Click <a href='https://felixelias.com/documents/Felix_Elias_Resume.docx'>here</a> for a download version</p>
+>>>>>>> f0e1947d1e7a7161e5b03acaf7494bfe9d3935bc
             </div>
         </div>
         <nav>
@@ -31,4 +35,8 @@ Header.propTypes = {
     timeout: PropTypes.bool
 }
 
+<<<<<<< HEAD
 export default Header
+=======
+export default Header
+>>>>>>> f0e1947d1e7a7161e5b03acaf7494bfe9d3935bc
