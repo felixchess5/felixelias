@@ -25,11 +25,14 @@
 				'opacity #{_duration(article)} ease-in-out',
 				'transform #{_duration(article)} ease-in-out'
 			));
-			@include padding(2.5rem, 2.5rem, (2rem, 0, 1rem, 0));
+			@include padding(2rem, 2rem, (1.5rem, 0, 1rem, 0));
 			position: relative;
-			width: 40rem;
-			max-width: 100%;
-			background-color: transparentize(_palette(bg), 0.15);
+			width: auto;
+			max-width: 90vw;
+			min-width: 20rem;
+			max-height: 90vh;
+			overflow-y: auto;
+			background-color: rgba(_palette(bg), 0.85);
 			border-radius: _size(border-radius);
 			opacity: 0;
 
@@ -87,11 +90,44 @@
 				}
 			}
 
+			&#experience {
+				font-size: clamp(0.9rem, 2vw, 1.1rem);
+				line-height: 1.6;
+				word-wrap: break-word;
+				overflow-wrap: break-word;
+				hyphens: auto;
+				
+				ul {
+					margin: 0.75rem 0;
+					padding-left: 1.25rem;
+				}
+				
+				li {
+					margin-bottom: 0.4rem;
+					text-align: justify;
+				}
+				
+				p {
+					margin-bottom: 1rem;
+					text-align: justify;
+				}
+				
+				.major {
+					margin-bottom: 1rem;
+					font-size: clamp(1.2rem, 3vw, 1.5rem);
+				}
+				
+				b {
+					font-size: clamp(0.95rem, 2.2vw, 1.15rem);
+				}
+			}
+
 		}
 
 		@include breakpoint(small) {
 			article {
-				@include padding(2rem, 2rem, (1.5rem, 0, 0.5rem, 0));
+				@include padding(1.5rem, 1.5rem, (1rem, 0, 0.5rem, 0));
+				max-width: 95vw;
 				.close {
 					&:before {
 						top: 0.875rem;
@@ -106,7 +142,9 @@
 
 		@include breakpoint(xsmall) {
 			article {
-				@include padding(2rem, 1.5rem, (1rem, 0, 0.5rem, 0));
+				@include padding(1rem, 0.75rem, (0.75rem, 0, 0.5rem, 0));
+				max-width: 98vw;
+				max-height: 95vh;
 			}
 		}
 	}

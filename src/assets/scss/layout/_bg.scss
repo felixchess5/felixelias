@@ -16,6 +16,7 @@
 		width: 100%;
 		height: 100vh;
 		z-index: 1;
+		overflow: hidden;
 
 		&:before, &:after {
 			content: '';
@@ -42,22 +43,94 @@
 		}
 
 		&:after {
-			@include vendor('transform', 'scale(1.125)');
+			@include vendor('transform', 'scale(1.0)');
 			@include vendor('transition', (
 				'transform #{_duration(article)} ease-in-out',
 				'filter #{_duration(article)} ease-in-out'
 			));
-			background-image:		url('../../images/bg.webp');
-			background-position:	center;
-			background-size:		cover;
-			background-repeat:		no-repeat;
+			// Deep space background with nebula colors
+			background: 
+				// Distant stars - randomly positioned with varying sizes and opacity
+				radial-gradient(circle at 8% 17%, rgba(255, 255, 255, 0.9) 0.8px, transparent 1.2px),
+				radial-gradient(circle at 23% 45%, rgba(200, 220, 255, 0.7) 1.2px, transparent 2px),
+				radial-gradient(circle at 67% 23%, rgba(255, 220, 180, 0.8) 0.6px, transparent 1px),
+				radial-gradient(circle at 89% 74%, rgba(180, 200, 255, 0.6) 1.5px, transparent 2.5px),
+				radial-gradient(circle at 31% 89%, rgba(255, 255, 255, 0.95) 0.9px, transparent 1.5px),
+				radial-gradient(circle at 76% 8%, rgba(220, 180, 255, 0.65) 1.1px, transparent 1.8px),
+				radial-gradient(circle at 42% 33%, rgba(240, 240, 255, 0.4) 0.5px, transparent 0.8px),
+				radial-gradient(circle at 18% 68%, rgba(255, 240, 200, 0.5) 0.7px, transparent 1.1px),
+				radial-gradient(circle at 94% 41%, rgba(200, 200, 255, 0.6) 1.3px, transparent 2.1px),
+				radial-gradient(circle at 56% 77%, rgba(255, 255, 255, 0.45) 0.4px, transparent 0.7px),
+				radial-gradient(circle at 12% 52%, rgba(180, 220, 255, 0.55) 0.9px, transparent 1.4px),
+				radial-gradient(circle at 73% 61%, rgba(255, 200, 220, 0.5) 0.6px, transparent 1px),
+				radial-gradient(circle at 37% 12%, rgba(220, 255, 240, 0.4) 0.8px, transparent 1.3px),
+				radial-gradient(circle at 85% 95%, rgba(255, 255, 255, 0.75) 1px, transparent 1.7px),
+				radial-gradient(circle at 4% 34%, rgba(200, 180, 255, 0.35) 0.5px, transparent 0.9px),
+				radial-gradient(circle at 61% 5%, rgba(255, 220, 180, 0.6) 0.7px, transparent 1.2px),
+				// Medium distance stars
+				radial-gradient(circle at 29% 71%, rgba(255, 255, 255, 0.85) 1.4px, transparent 2.2px),
+				radial-gradient(circle at 78% 38%, rgba(180, 200, 255, 0.7) 1.1px, transparent 1.8px),
+				radial-gradient(circle at 14% 81%, rgba(220, 180, 255, 0.6) 0.9px, transparent 1.5px),
+				radial-gradient(circle at 92% 19%, rgba(255, 240, 200, 0.75) 1.2px, transparent 2px),
+				// Small distant planets
+				radial-gradient(circle at 7% 63%, rgba(100, 120, 150, 0.35) 2.5px, transparent 3.5px),
+				radial-gradient(circle at 83% 29%, rgba(120, 100, 140, 0.28) 1.8px, transparent 2.8px),
+				radial-gradient(circle at 45% 84%, rgba(140, 120, 100, 0.25) 2.2px, transparent 3.2px),
+				radial-gradient(circle at 22% 15%, rgba(100, 140, 120, 0.3) 1.5px, transparent 2.5px),
+				// Nebula clouds
+				radial-gradient(ellipse 320px 180px at 28% 42%, rgba(80, 60, 120, 0.15) 0%, transparent 70%),
+				radial-gradient(ellipse 280px 220px at 72% 58%, rgba(60, 80, 140, 0.12) 0%, transparent 60%),
+				radial-gradient(ellipse 200px 150px at 15% 75%, rgba(100, 70, 130, 0.08) 0%, transparent 50%),
+				// Base space gradient
+				linear-gradient(135deg, #0d0d1a 0%, #1a1a2e 25%, #0f1b3c 50%, #2d1b4e 75%, #1a0d2e 100%);
+			background-size: 
+				// Distant stars - varied sizes for depth
+				800px 600px, 650px 480px, 900px 700px, 550px 420px, 750px 580px, 480px 360px,
+				1200px 900px, 380px 290px, 720px 540px, 1100px 850px, 620px 470px, 890px 680px,
+				950px 720px, 520px 390px, 1350px 1000px, 680px 510px,
+				// Medium distance stars
+				420px 320px, 580px 440px, 750px 570px, 490px 370px,
+				// Planets - larger background sizes for more realistic spread
+				1500px 1200px, 1800px 1400px, 1200px 950px, 1600px 1250px,
+				// Nebula clouds - organic sizes
+				800px 600px, 900px 700px, 650px 500px,
+				// Base space gradient
+				100% 100%;
+			background-attachment: fixed;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
 			z-index: 1;
 		}
+		
+		// Shooting stars combined - both in one layer with multiple background images
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-image: 
+				// Single shooting star - alternates direction
+				linear-gradient(90deg, transparent 0%, rgba(180, 200, 240, 0.2) 25%, rgba(200, 220, 255, 0.5) 60%, rgba(220, 240, 255, 0.8) 85%, rgba(255, 255, 255, 1) 100%);
+			background-size: 
+				220px 3px;
+			background-position: 
+				-240px 35%;
+			background-repeat: no-repeat;
+			animation: singleShootingStar 16s linear infinite;
+			pointer-events: none;
+			z-index: 4;
+		}
+		
 
 		.body.is-article-visible & {
 			&:after {
-				@include vendor('transform', 'scale(1.0825)');
-				@include vendor('filter', 'blur(0.2rem)');
+				@include vendor('transform', 'scale(1.0)');
+				@include vendor('filter', 'blur(0.1rem)');
 			}
 		}
 
@@ -65,5 +138,200 @@
 			&:before {
 				background-color:	_palette(bg-alt);
 			}
+		}
+	}
+
+	// Simplified animation keyframes for the tech background
+	@keyframes gradientShift {
+		0% {
+			transform: translateX(0);
+		}
+		50% {
+			transform: translateX(-2px);
+		}
+		100% {
+			transform: translateX(0);
+		}
+	}
+
+	@keyframes floatingOrbs {
+		0%, 100% {
+			transform: translate(0, 0);
+			opacity: 0.6;
+		}
+		33% {
+			transform: translate(5px, -5px);
+			opacity: 0.4;
+		}
+		66% {
+			transform: translate(-3px, 3px);
+			opacity: 0.7;
+		}
+	}
+
+	@keyframes particles {
+		0% {
+			transform: translateY(100vh) rotate(0deg);
+			opacity: 0;
+		}
+		15% {
+			opacity: 0.6;
+		}
+		85% {
+			opacity: 0.6;
+		}
+		100% {
+			transform: translateY(-100vh) rotate(180deg);
+			opacity: 0;
+		}
+	}
+
+	@keyframes techParticleFloat {
+		0% {
+			transform: translate(0, 0) rotate(0deg);
+		}
+		25% {
+			transform: translate(-20px, -30px) rotate(90deg);
+		}
+		50% {
+			transform: translate(30px, -15px) rotate(180deg);
+		}
+		75% {
+			transform: translate(-10px, -45px) rotate(270deg);
+		}
+		100% {
+			transform: translate(0, -60px) rotate(360deg);
+		}
+	}
+
+	@keyframes floatingTechObjects {
+		0% {
+			transform: translate(0, 0) scale(1);
+			background-position: 0% 0%;
+		}
+		20% {
+			transform: translate(15px, -10px) scale(1.1);
+			background-position: 20% 10%;
+		}
+		40% {
+			transform: translate(-10px, -25px) scale(0.9);
+			background-position: 40% 30%;
+		}
+		60% {
+			transform: translate(25px, -20px) scale(1.05);
+			background-position: 60% 20%;
+		}
+		80% {
+			transform: translate(-5px, -40px) scale(0.95);
+			background-position: 80% 40%;
+		}
+		100% {
+			transform: translate(0, -50px) scale(1);
+			background-position: 100% 50%;
+		}
+	}
+
+
+	// Data stream animation for moving packets
+	@keyframes dataStreamFlow {
+		0% {
+			transform: translateX(-100px) translateY(0px);
+			opacity: 0;
+		}
+		10% {
+			opacity: 1;
+		}
+		90% {
+			opacity: 1;
+		}
+		100% {
+			transform: translateX(100px) translateY(-20px);
+			opacity: 0;
+		}
+	}
+
+	// Neural network connection lines
+	@keyframes networkPulse {
+		0%, 100% {
+			opacity: 0.3;
+			transform: scale(1);
+		}
+		50% {
+			opacity: 0.8;
+			transform: scale(1.02);
+		}
+	}
+
+	// Circuit board lines effect
+	@keyframes circuitPulse {
+		0% {
+			opacity: 0.2;
+			filter: brightness(0.8);
+		}
+		50% {
+			opacity: 0.6;
+			filter: brightness(1.2);
+		}
+		100% {
+			opacity: 0.2;
+			filter: brightness(0.8);
+		}
+	}
+
+	// Single shooting star alternating directions (16s cycle)
+	@keyframes singleShootingStar {
+		// Start hidden off-screen left - left to right gradient
+		0% {
+			background-position: -240px 35%;
+			background-image: linear-gradient(90deg, transparent 0%, rgba(180, 200, 240, 0.2) 25%, rgba(200, 220, 255, 0.5) 60%, rgba(220, 240, 255, 0.8) 85%, rgba(255, 255, 255, 1) 100%);
+			opacity: 0;
+		}
+		
+		// Shooting star 1: left to right (10-30% of cycle)
+		10% {
+			background-position: -240px 35%;
+			background-image: linear-gradient(90deg, transparent 0%, rgba(180, 200, 240, 0.2) 25%, rgba(200, 220, 255, 0.5) 60%, rgba(220, 240, 255, 0.8) 85%, rgba(255, 255, 255, 1) 100%);
+			opacity: 1;
+		}
+		30% {
+			background-position: calc(100% + 60px) 35%;
+			background-image: linear-gradient(90deg, transparent 0%, rgba(180, 200, 240, 0.2) 25%, rgba(200, 220, 255, 0.5) 60%, rgba(220, 240, 255, 0.8) 85%, rgba(255, 255, 255, 1) 100%);
+			opacity: 1;
+		}
+		32% {
+			background-position: calc(100% + 60px) 35%;
+			background-image: linear-gradient(90deg, transparent 0%, rgba(180, 200, 240, 0.2) 25%, rgba(200, 220, 255, 0.5) 60%, rgba(220, 240, 255, 0.8) 85%, rgba(255, 255, 255, 1) 100%);
+			opacity: 0;
+		}
+		
+		// Prepare for right-to-left: move to right edge and switch gradient
+		58% {
+			background-position: calc(100% + 240px) 70%;
+			background-image: linear-gradient(270deg, transparent 0%, rgba(200, 180, 220, 0.2) 25%, rgba(220, 200, 240, 0.5) 60%, rgba(240, 220, 255, 0.8) 85%, rgba(255, 255, 255, 1) 100%);
+			opacity: 0;
+		}
+		
+		// Shooting star 2: right to left (60-80% of cycle)
+		60% {
+			background-position: calc(100% + 240px) 70%;
+			background-image: linear-gradient(270deg, transparent 0%, rgba(200, 180, 220, 0.2) 25%, rgba(220, 200, 240, 0.5) 60%, rgba(240, 220, 255, 0.8) 85%, rgba(255, 255, 255, 1) 100%);
+			opacity: 1;
+		}
+		80% {
+			background-position: -60px 70%;
+			background-image: linear-gradient(270deg, transparent 0%, rgba(200, 180, 220, 0.2) 25%, rgba(220, 200, 240, 0.5) 60%, rgba(240, 220, 255, 0.8) 85%, rgba(255, 255, 255, 1) 100%);
+			opacity: 1;
+		}
+		82% {
+			background-position: -60px 70%;
+			background-image: linear-gradient(270deg, transparent 0%, rgba(200, 180, 220, 0.2) 25%, rgba(220, 200, 240, 0.5) 60%, rgba(240, 220, 255, 0.8) 85%, rgba(255, 255, 255, 1) 100%);
+			opacity: 0;
+		}
+		
+		// Reset for next cycle
+		98%, 100% {
+			background-position: -240px 35%;
+			background-image: linear-gradient(90deg, transparent 0%, rgba(180, 200, 240, 0.2) 25%, rgba(200, 220, 255, 0.5) 60%, rgba(220, 240, 255, 0.8) 85%, rgba(255, 255, 255, 1) 100%);
+			opacity: 0;
 		}
 	}

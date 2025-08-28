@@ -11,12 +11,8 @@ const Header = (props) => (
         <div className="content">
             <div className="inner">
                 <h1>Felix Elias</h1>
-                <p>Online Portfolio</p>
-<<<<<<< HEAD
-                <p>Click <a href='https://felixelias.com/documents/Felix_Elias_Portfolio.docx'>here</a> for a download version</p> 
-=======
-                <p>Click <a href='https://felixelias.com/documents/Felix_Elias_Resume.docx'>here</a> for a download version</p>
->>>>>>> f0e1947d1e7a7161e5b03acaf7494bfe9d3935bc
+                <p>Legal and Compliance Technology Leader | AI Solutions Architect | 11+ Years Transforming Enterprise Operations</p>
+                <p>Click <a href='/documents/Felix Elias Resume Aug 2025.pdf'>here</a> for a download version</p>
             </div>
         </div>
         <nav>
@@ -24,6 +20,7 @@ const Header = (props) => (
                 <li><a href="javascript:;" onClick={() => {props.onOpenArticle('about')}}>About</a></li>
                 <li><a href="javascript:;" onClick={() => {props.onOpenArticle('experience')}}>Experience</a></li>
                 <li><a href="javascript:;" onClick={() => {props.onOpenArticle('education')}}>Education</a></li>
+                <li><a href="javascript:;" onClick={() => {props.onOpenArticle('skills')}}>Skills</a></li>
                 <li><a href="javascript:;" onClick={() => {props.onOpenArticle('contact')}}>Contact</a></li>
             </ul>
         </nav>
@@ -35,8 +32,4 @@ Header.propTypes = {
     timeout: PropTypes.bool
 }
 
-<<<<<<< HEAD
 export default Header
-=======
-export default Header
->>>>>>> f0e1947d1e7a7161e5b03acaf7494bfe9d3935bc

@@ -10,7 +10,7 @@ const Footer = (props) => (
                         <li><a href="https://github.com/felixchess5" className="icon fa-github"><span className="label">Github</span></a></li>
                     </ul>
                     <ul className="copyright" >
-                        <li>&copy; Felix Elias <a id="felixeliasurl" href="http://www.felixelias.com/">felixelias.com</a></li>
+                        <li>&copy; {new Date().getFullYear()} Felix Elias <a id="felixeliasurl" href="http://www.felixelias.com/">felixelias.com</a></li>
                     </ul>
         </div>
     </footer>
