@@ -13,7 +13,8 @@
 
 // Size.
 	$size: (
-		border-radius:				4px,
+		border-radius:				12px,
+		border-radius-small:		6px,
 		border-width:				1px,
 		element-height:				2.75rem,
 		element-margin:				2rem
@@ -21,12 +22,12 @@
 
 // Font.
 	$font: (
-		family:						('Source Sans Pro', sans-serif),
-		family-fixed:				('Courier New', monospace),
-		weight:						300,
+		family:						('Inter', 'Roboto', 'Segoe UI', system-ui, -apple-system, sans-serif),
+		family-fixed:				('SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Courier New', monospace),
+		weight:						400,
 		weight-bold:				600,
-		letter-spacing:				0.2rem,
-		letter-spacing-heading:		0.5rem
+		letter-spacing:				0.15rem,
+		letter-spacing-heading:		0.4rem
 	);
 
 // Palette.
@@ -34,10 +35,20 @@
 		bg:							#1b1f22,
 		bg-alt:						#000000,
 		bg-overlay:					rgba(19,21,25,0.5),
-		fg:							#ffffff,
-		fg-bold:					#ffffff,
+		fg:							#f8f9fa,
+		fg-bold:					#e3f2fd,
 		fg-light:					rgba(255,255,255,0.5),
 		border:						#ffffff,
 		border-bg:					rgba(255,255,255,0.075),
-		border-bg-alt:				rgba(255,255,255,0.175)
+		border-bg-alt:				rgba(255,255,255,0.175),
+		// New accent colors
+		accent-blue:				#64b5f6,
+		accent-blue-light:			rgba(100, 181, 246, 0.8),
+		accent-blue-bg:				rgba(100, 181, 246, 0.1),
+		accent-green:				#4caf50,
+		accent-green-light:			rgba(76, 175, 80, 0.8),
+		accent-green-bg:			rgba(76, 175, 80, 0.1),
+		accent-warm:				#ff7043,
+		accent-warm-light:			rgba(255, 112, 67, 0.8),
+		accent-warm-bg:				rgba(255, 112, 67, 0.1)
 	);

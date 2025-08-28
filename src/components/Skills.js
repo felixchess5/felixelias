@@ -21,6 +21,10 @@ const Skills = ({ data, isActive, articleTimeout, onClose }) => {
           </ul>
         </div>
       ))}
+      
+      <span className="image main">
+        <img src={data.image.src} alt={data.image.alt} />
+      </span>
       {close}
     </article>
   )
@@ -32,7 +36,11 @@ Skills.propTypes = {
     categories: PropTypes.arrayOf(PropTypes.shape({
       category: PropTypes.string.isRequired,
       skills: PropTypes.arrayOf(PropTypes.string).isRequired
-    })).isRequired
+    })).isRequired,
+    image: PropTypes.shape({
+      src: PropTypes.string.isRequired,
+      alt: PropTypes.string.isRequired
+    }).isRequired
   }).isRequired,
   isActive: PropTypes.bool.isRequired,
   articleTimeout: PropTypes.bool.isRequired,

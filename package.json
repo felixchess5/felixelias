@@ -11,6 +11,7 @@
     "gatsby-plugin-react-helmet": "^3.10.0",
     "gatsby-plugin-sass": "^2.8.0",
     "http-proxy-middleware": "^2.0.9",
+    "nodemailer": "^6.9.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-fontawesome": "^1.7.1",

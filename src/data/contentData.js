@@ -1,12 +1,15 @@
 import me from '../images/Me.jpg'
 import work from '../images/work.webp'
 import universities from '../images/Universities.webp'
+import skills from '../images/skills.webp'
 
 export const aboutData = {
   title: "About",
   paragraphs: [
-    "Felix is a Management Consulting Principal at Accenture with over 11 years of industry experience, specializing in Legal Technology, Intelligent Automation, and AI solutions. He founded a Legal Technology Center of Excellence and developed innovative platforms that generated over $1M in sales pipeline.",
-    "He is fully bilingual in English and Spanish, with extensive experience in managing both onshore and offshore teams. Felix is passionate about cutting-edge technology trends, particularly in Generative AI, Agentic AI, and intelligent process automation. During his free time, he enjoys traveling, playing chess, and working on personal technology projects."
+    "Hi, I’m Felix 👋—a Management Consulting Principal with a passion for helping organizations reimagine what’s possible with technology. Over the past 11+ years, I’ve worked with global banks, capital markets firms, and legal departments to bring Intelligent Automation, Generative AI, and Agentic AI to life in ways that truly move the needle.",
+    "I’ve had the privilege of building platforms that streamline legal operations, creating AI-powered compliance solutions, and even experimenting with VR to spark innovation. Along the way, I founded a Legal Technology Center of Excellence, trained hundreds of practitioners, and developed solutions that opened over $1M in new opportunities.",
+    "What excites me most is exploring how emerging AI can transform the way people work—whether it’s automating regulatory reviews, building multi-agent systems, or designing smarter workflows.",
+    "Outside of work, you’ll probably find me traveling, playing chess, or tinkering with personal tech projects. I’m always curious, always learning, and always looking for new ways to bring bold ideas into reality."
   ],
   image: {
     src: me,
@@ -27,7 +30,7 @@ export const experienceData = {
           "Successfully trained over 200 practitioners in CLM and legal technology within first six months",
           "Developed 'Legal Front Door' proof of concept platform generating $1M+ sales pipeline",
           "Established critical vendor relationships across CLM, eSignature, workflow, and AI domains",
-          "Led strategic RFP responses securing multiple client engagements"
+          "Led strategic RFP responses6 securing multiple client engagements"
         ]
       },
       {
@@ -169,7 +172,11 @@ export const skillsData = {
         "Agentic AI Tooling & Frameworks"
       ]
     }
-  ]
+  ],
+  image: {
+    src: skills,
+    alt: "Skills & Expertise"
+  }
 }
 
 export const contactData = {
@@ -181,9 +188,9 @@ export const contactData = {
       label: "Linkedin"
     },
     {
-      url: "https://twitter.com/felixchess5",
-      icon: "fa-twitter",
-      label: "Twitter"
+      url: "mailto:felixelias5@gmail.com",
+      icon: "fa-envelope",
+      label: "Email"
     },
     {
       url: "https://github.com/felixchess5",

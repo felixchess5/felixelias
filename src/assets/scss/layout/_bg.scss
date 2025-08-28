@@ -46,10 +46,17 @@
 			@include vendor('transform', 'scale(1.0)');
 			@include vendor('transition', (
 				'transform #{_duration(article)} ease-in-out',
-				'filter #{_duration(article)} ease-in-out'
+				'filter #{_duration(article)} ease-in-out',
+				'background-position #{_duration(bg)} ease-out'
 			));
-			// Deep space background with nebula colors
+			// Deep space background with nebula colors and floating particles
 			background: 
+				// Floating micro dust particles (front layer)
+				radial-gradient(circle at 15% 25%, rgba(255, 255, 255, 0.08) 0.3px, transparent 0.6px),
+				radial-gradient(circle at 45% 15%, rgba(200, 220, 255, 0.06) 0.2px, transparent 0.5px),
+				radial-gradient(circle at 75% 35%, rgba(255, 240, 200, 0.07) 0.25px, transparent 0.55px),
+				radial-gradient(circle at 25% 65%, rgba(220, 180, 255, 0.05) 0.3px, transparent 0.6px),
+				radial-gradient(circle at 85% 75%, rgba(180, 200, 255, 0.09) 0.2px, transparent 0.5px),
 				// Distant stars - randomly positioned with varying sizes and opacity
 				radial-gradient(circle at 8% 17%, rgba(255, 255, 255, 0.9) 0.8px, transparent 1.2px),
 				radial-gradient(circle at 23% 45%, rgba(200, 220, 255, 0.7) 1.2px, transparent 2px),
@@ -84,6 +91,8 @@
 				// Base space gradient
 				linear-gradient(135deg, #0d0d1a 0%, #1a1a2e 25%, #0f1b3c 50%, #2d1b4e 75%, #1a0d2e 100%);
 			background-size: 
+				// Floating micro dust particles (front layer)
+				400px 300px, 320px 240px, 480px 360px, 360px 270px, 520px 390px,
 				// Distant stars - varied sizes for depth
 				800px 600px, 650px 480px, 900px 700px, 550px 420px, 750px 580px, 480px 360px,
 				1200px 900px, 380px 290px, 720px 540px, 1100px 850px, 620px 470px, 890px 680px,
@@ -103,6 +112,65 @@
 			width: 100%;
 			height: 100%;
 			z-index: 1;
+			animation: twinklingStars 8s ease-in-out infinite, parallaxDrift 20s linear infinite;
+		}
+
+		// Aurora-like gradient overlay layer
+		.aurora-overlay {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: 
+				radial-gradient(ellipse 800px 300px at 20% 30%, rgba(100, 181, 246, 0.05) 0%, transparent 50%),
+				radial-gradient(ellipse 600px 400px at 80% 70%, rgba(76, 175, 80, 0.03) 0%, transparent 50%),
+				radial-gradient(ellipse 1000px 200px at 50% 90%, rgba(255, 112, 67, 0.02) 0%, transparent 50%);
+			pointer-events: none;
+			z-index: 3;
+			opacity: 0;
+			animation: auroraFlow 12s ease-in-out infinite;
+		}
+
+		// Mouse-following constellation effect
+		.constellation-cursor {
+			position: absolute;
+			width: 4px;
+			height: 4px;
+			background: radial-gradient(circle, rgba(100, 181, 246, 0.8) 0%, transparent 70%);
+			border-radius: 50%;
+			pointer-events: none;
+			z-index: 4;
+			opacity: 0;
+			transition: opacity 0.3s ease;
+
+			&.active {
+				opacity: 1;
+				animation: starPulse 2s ease-in-out infinite;
+			}
+
+			// Constellation lines
+			&:after {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 0;
+				height: 1px;
+				background: linear-gradient(90deg, 
+					transparent 0%, 
+					rgba(100, 181, 246, 0.6) 20%, 
+					rgba(100, 181, 246, 0.8) 50%,
+					rgba(100, 181, 246, 0.6) 80%, 
+					transparent 100%
+				);
+				transform: translate(-50%, -50%);
+				transition: width 0.5s ease-out;
+			}
+
+			&.connected:after {
+				width: 150px;
+			}
 		}
 		
 		// Shooting stars combined - both in one layer with multiple background images
@@ -139,6 +207,12 @@
 				background-color:	_palette(bg-alt);
 			}
 		}
+
+		@include breakpoint(medium) {
+			&:after {
+				@include vendor('transform', 'scale(0.325)');
+			}
+		}
 	}
 
 	// Simplified animation keyframes for the tech background
@@ -166,6 +240,75 @@
 		66% {
 			transform: translate(-3px, 3px);
 			opacity: 0.7;
+		}
+	}
+
+	// Interactive elements styles
+	.cursor-trail {
+		position: fixed;
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, rgba(180, 200, 255, 0.3) 50%, transparent 100%);
+		pointer-events: none;
+		z-index: 9999;
+		opacity: 0;
+		transform: translate(-50%, -50%);
+		transition: opacity 0.3s ease;
+
+		&::before {
+			content: '';
+			position: absolute;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(200, 220, 255, 0.05) 70%, transparent 100%);
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			animation: cursorPulse 2s ease-in-out infinite;
+		}
+
+		// Hide cursor trail on mobile devices
+		@media (hover: none) and (pointer: coarse) {
+			display: none;
+		}
+	}
+
+	// Navigation hover effects
+	nav ul li a:hover {
+		position: relative;
+		
+		&::after {
+			content: '';
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(180, 200, 255, 0.05) 50%, transparent 100%);
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			pointer-events: none;
+			z-index: -1;
+			animation: navGlow 0.6s ease-out;
+		}
+	}
+
+	// Constellation connections on hover
+	.constellation-line {
+		position: absolute;
+		height: 1px;
+		background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 20%, rgba(180, 200, 255, 0.6) 50%, rgba(255, 255, 255, 0.3) 80%, transparent 100%);
+		pointer-events: none;
+		opacity: 0;
+		transform-origin: left center;
+		transition: opacity 0.5s ease, transform 0.5s ease;
+		z-index: 2;
+
+		&.active {
+			opacity: 1;
+			animation: constellationPulse 3s ease-in-out infinite;
 		}
 	}
 
@@ -226,8 +369,8 @@
 			background-position: 80% 40%;
 		}
 		100% {
-			transform: translate(0, -50px) scale(1);
-			background-position: 100% 50%;
+			transform: translate(0, 0) scale(1);
+			background-position: 0% 0%;
 		}
 	}
 
@@ -333,5 +476,202 @@
 			background-position: -240px 35%;
 			background-image: linear-gradient(90deg, transparent 0%, rgba(180, 200, 240, 0.2) 25%, rgba(200, 220, 255, 0.5) 60%, rgba(220, 240, 255, 0.8) 85%, rgba(255, 255, 255, 1) 100%);
 			opacity: 0;
+		}
+	}
+
+	// Twinkling stars animation
+	@keyframes twinklingStars {
+		0%, 100% {
+			opacity: 1;
+			filter: brightness(1);
+		}
+		25% {
+			opacity: 0.7;
+			filter: brightness(1.3);
+		}
+		50% {
+			opacity: 0.9;
+			filter: brightness(0.8);
+		}
+		75% {
+			opacity: 0.8;
+			filter: brightness(1.1);
+		}
+	}
+
+	// Floating dust particles animation - subtle background movement only
+	@keyframes floatingDust {
+		0% {
+			background-position: 
+				15% 25%, 45% 15%, 75% 35%, 25% 65%, 85% 75%;
+			opacity: 1;
+		}
+		25% {
+			background-position: 
+				17% 23%, 47% 17%, 73% 37%, 27% 63%, 83% 77%;
+			opacity: 0.8;
+		}
+		50% {
+			background-position: 
+				13% 27%, 43% 13%, 77% 33%, 23% 67%, 87% 73%;
+			opacity: 0.9;
+		}
+		75% {
+			background-position: 
+				19% 21%, 49% 19%, 71% 39%, 29% 61%, 81% 79%;
+			opacity: 0.7;
+		}
+		100% {
+			background-position: 
+				15% 25%, 45% 15%, 75% 35%, 25% 65%, 85% 75%;
+			opacity: 1;
+		}
+	}
+
+	// Enhanced parallax drift animation - more complex movement
+	@keyframes parallaxDrift {
+		0% {
+			background-position: 
+				0% 0%, 20% 40%, 80% 10%, 10% 90%, 50% 60%, 90% 20%,
+				15% 25%, 45% 15%, 75% 35%, 25% 65%, 85% 75%,
+				28% 42%, 72% 58%, 15% 75%;
+		}
+		25% {
+			background-position: 
+				-2% 5%, 22% 45%, 82% 15%, 12% 85%, 52% 65%, 88% 25%,
+				17% 23%, 47% 17%, 73% 37%, 27% 63%, 83% 77%,
+				30% 40%, 74% 56%, 17% 73%;
+		}
+		50% {
+			background-position: 
+				-5% 10%, 25% 50%, 85% 20%, 15% 80%, 55% 70%, 85% 30%,
+				20% 20%, 50% 20%, 70% 40%, 30% 60%, 80% 80%,
+				32% 38%, 76% 54%, 19% 71%;
+		}
+		75% {
+			background-position: 
+				-3% 15%, 27% 55%, 83% 25%, 17% 75%, 57% 75%, 83% 35%,
+				22% 18%, 52% 22%, 68% 42%, 32% 58%, 78% 82%,
+				34% 36%, 78% 52%, 21% 69%;
+		}
+		100% {
+			background-position: 
+				0% 0%, 20% 40%, 80% 10%, 10% 90%, 50% 60%, 90% 20%,
+				15% 25%, 45% 15%, 75% 35%, 25% 65%, 85% 75%,
+				28% 42%, 72% 58%, 15% 75%;
+		}
+	}
+
+	// Aurora flow animation
+	@keyframes auroraFlow {
+		0% {
+			opacity: 0;
+			background-position: 
+				20% 30%, 80% 70%, 50% 90%;
+		}
+		25% {
+			opacity: 0.8;
+			background-position: 
+				25% 35%, 75% 65%, 45% 85%;
+		}
+		50% {
+			opacity: 1;
+			background-position: 
+				30% 40%, 70% 60%, 40% 80%;
+		}
+		75% {
+			opacity: 0.6;
+			background-position: 
+				35% 45%, 65% 55%, 35% 75%;
+		}
+		100% {
+			opacity: 0;
+			background-position: 
+				20% 30%, 80% 70%, 50% 90%;
+		}
+	}
+
+	// Star pulse animation for constellation effects
+	@keyframes starPulse {
+		0%, 100% {
+			transform: scale(1);
+			opacity: 0.8;
+		}
+		50% {
+			transform: scale(1.5);
+			opacity: 1;
+		}
+	}
+
+	// Interactive animations
+	@keyframes cursorPulse {
+		0%, 100% {
+			transform: translate(-50%, -50%) scale(1);
+			opacity: 0.3;
+		}
+		50% {
+			transform: translate(-50%, -50%) scale(1.2);
+			opacity: 0.1;
+		}
+	}
+
+	@keyframes navGlow {
+		0% {
+			transform: translate(-50%, -50%) scale(0);
+			opacity: 1;
+		}
+		100% {
+			transform: translate(-50%, -50%) scale(1);
+			opacity: 0;
+		}
+	}
+
+	@keyframes constellationPulse {
+		0%, 100% {
+			opacity: 0.6;
+			filter: brightness(1);
+		}
+		50% {
+			opacity: 1;
+			filter: brightness(1.5);
+		}
+	}
+
+	// Reduce animations on mobile for better performance
+	@media (max-width: 768px) {
+		#bg {
+			.aurora-overlay,
+			.constellation-cursor,
+			.cursor-trail {
+				display: none;
+			}
+			
+			&:after {
+				animation: twinklingStars 12s ease-in-out infinite;
+			}
+			
+			&:before {
+				animation: singleShootingStar 24s linear infinite;
+			}
+		}
+	}
+
+	// Disable complex animations on reduced motion preference
+	@media (prefers-reduced-motion: reduce) {
+		* {
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.01ms !important;
+			
+			&:before, &:after {
+				animation-duration: 0.01ms !important;
+				animation-iteration-count: 1 !important;
+			}
+		}
+		
+		.aurora-overlay,
+		.constellation-cursor,
+		.cursor-trail {
+			display: none;
 		}
 	}

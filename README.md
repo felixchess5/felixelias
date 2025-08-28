@@ -7,6 +7,8 @@ A modern, interactive portfolio website showcasing Felix Elias's professional ex
 - **Space-Themed Design**: Custom deep space background with animated shooting stars
 - **Responsive Layout**: Optimized for all devices and screen sizes
 - **Interactive Navigation**: Smooth transitions between portfolio sections
+- **Contact Form**: Functional contact form with email notifications
+- **Serverless Backend**: Netlify Functions for contact form processing
 - **Modern Stack**: Built with Gatsby.js and React
 - **Professional Content**: Comprehensive experience, education, and skills sections
 
@@ -14,6 +16,8 @@ A modern, interactive portfolio website showcasing Felix Elias's professional ex
 
 - **Framework**: Gatsby.js v2.32.13
 - **Frontend**: React 16.14.0
+- **Backend**: Netlify Functions (Serverless)
+- **Email**: Nodemailer with Gmail integration
 - **Styling**: Sass/SCSS with custom animations
 - **Icons**: FontAwesome
 - **Build Tools**: Node.js, npm
@@ -27,13 +31,19 @@ A modern, interactive portfolio website showcasing Felix Elias's professional ex
 │   │   ├── Experience.js
 │   │   ├── Education.js
 │   │   ├── Skills.js
-│   │   └── Contact.js
+│   │   ├── Contact.js
+│   │   └── InteractiveEffects.js
 │   ├── data/               # Content data
 │   ├── assets/scss/        # Styling and animations
 │   ├── images/            # Static images
 │   └── documents/         # Downloadable resume
+├── netlify/
+│   └── functions/          # Serverless functions
+│       ├── contact.js      # Contact form handler
+│       └── package.json    # Function dependencies
 ├── static/                # Static assets
-└── backend/              # Backend services (if applicable)
+├── .env.example           # Environment variables template
+└── netlify.toml          # Netlify deployment configuration
 ```
 
 ## 🎨 Design Highlights
@@ -54,31 +64,67 @@ A modern, interactive portfolio website showcasing Felix Elias's professional ex
 2. **Install dependencies**
    ```bash
    npm install
+   cd netlify/functions && npm install && cd ../..
    ```
 
-3. **Start development server**
+3. **Set up environment variables**
    ```bash
-   npm run develop
+   cp .env.example .env
+   # Edit .env with your Gmail credentials (see Contact Form Setup below)
    ```
 
-4. **Open in browser**
-   Navigate to `http://localhost:8000`
+4. **Start development server**
+   ```bash
+   netlify dev
+   ```
+   *Note: Use `netlify dev` instead of `npm run develop` for full functionality including contact form*
+
+5. **Open in browser**
+   Navigate to `http://localhost:8888`
 
 ## 📦 Available Scripts
 
-- `npm run develop` - Start development server
+- `netlify dev` - Start development server with functions (recommended)
+- `npm run develop` - Start Gatsby development server only (contact form won't work)
 - `npm run build` - Build for production
 - `npm run deploy` - Deploy to GitHub Pages
 - `npm run format` - Format code with Prettier
 
+## 📧 Contact Form Setup
+
+The contact form requires Gmail app password authentication:
+
+1. **Enable 2-Factor Authentication** on your Gmail account
+2. **Generate App Password**:
+   - Go to Google Account → Security → App passwords
+   - Create new app password for "Mail"
+3. **Configure Environment Variables**:
+   ```bash
+   EMAIL_SERVICE=gmail
+   EMAIL_USER=your-email@gmail.com
+   EMAIL_PASS=your-16-character-app-password
+   ```
+
+### Production Deployment (Netlify)
+
+1. Connect repository to Netlify
+2. Add environment variables in Netlify dashboard:
+   - `EMAIL_SERVICE=gmail`
+   - `EMAIL_USER=felixelias5@gmail.com`
+   - `EMAIL_PASS=your-app-password`
+3. Deploy automatically builds with serverless functions
+
 ## 🌟 Recent Updates (2025)
 
-- Complete visual redesign with space theme
-- Enhanced responsive design for mobile devices
-- Modernized React components and data structure
-- Improved performance and accessibility
-- Updated dependencies to latest stable versions
-- Added comprehensive shooting star animation system
+- **Functional Contact Form**: Added serverless backend with email notifications
+- **Smooth Animations**: Fixed background animation loops for seamless transitions
+- **Complete Visual Redesign**: Space theme with interactive elements
+- **Enhanced Responsive Design**: Optimized for mobile devices
+- **Modernized React Components**: Updated data structure and components
+- **Improved Performance**: Better accessibility and optimization
+- **Updated Dependencies**: Latest stable versions
+- **Comprehensive Animation System**: Shooting stars and particle effects
+- **Serverless Architecture**: Netlify Functions for backend functionality
 
 ## 👨‍💻 About Felix Elias
 
