@@ -26,7 +26,7 @@ const Contact = ({ data, isActive, articleTimeout, onClose }) => {
     setSubmitStatus(null);
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('/contact.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ const Contact = ({ data, isActive, articleTimeout, onClose }) => {
         setSubmitStatus({ type: 'success', message: result.message });
         setFormData({ name: '', email: '', message: '' });
       } else {
-        setSubmitStatus({ type: 'error', message: result.error });
+        setSubmitStatus({ type: 'error', message: result.message });
       }
     } catch (error) {
       setSubmitStatus({ 

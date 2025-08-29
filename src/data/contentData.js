@@ -1,3 +1,6 @@
+// Cache buster - update this when content changes
+export const CONTENT_VERSION = "2.1.0"
+
 import me from '../images/Me.jpg'
 import work from '../images/work.webp'
 import universities from '../images/Universities.webp'
@@ -6,9 +9,9 @@ import skills from '../images/skills.webp'
 export const aboutData = {
   title: "About",
   paragraphs: [
-    "Hi, I’m Felix 👋—a Management Consulting Principal with a passion for helping organizations reimagine what’s possible with technology. Over the past 11+ years, I’ve worked with global banks, capital markets firms, and legal departments to bring Intelligent Automation, Generative AI, and Agentic AI to life in ways that truly move the needle.",
+    "Hi, I’m Felix 👋 a Management Consulting Principal with a passion for helping organizations reimagine what’s possible with technology. Over the past 11+ years, I’ve worked with global banks, capital markets firms, and legal departments to bring Intelligent Automation, Generative AI, and Agentic AI to life in ways that truly move the needle.",
     "I’ve had the privilege of building platforms that streamline legal operations, creating AI-powered compliance solutions, and even experimenting with VR to spark innovation. Along the way, I founded a Legal Technology Center of Excellence, trained hundreds of practitioners, and developed solutions that opened over $1M in new opportunities.",
-    "What excites me most is exploring how emerging AI can transform the way people work—whether it’s automating regulatory reviews, building multi-agent systems, or designing smarter workflows.",
+    "What excites me most is exploring how emerging AI can transform the way people work, whether it’s automating regulatory reviews, building multi-agent systems, or designing smarter workflows.",
     "Outside of work, you’ll probably find me traveling, playing chess, or tinkering with personal tech projects. I’m always curious, always learning, and always looking for new ways to bring bold ideas into reality."
   ],
   image: {
@@ -21,7 +24,7 @@ export const experienceData = {
   title: "Experience",
   description: "Management Consulting Principal at Accenture (June 2014 – July 2025) with expertise in Legal Technology, Intelligent Automation, and AI solutions. Founded a Legal Technology Center of Excellence and led transformational programs for tier-1 global banks.",
   projects: {
-    title: "Key Achievements & Selected Experience",
+    title: "Key Achievements",
     items: [
       {
         title: "Legal Technology Center of Excellence",

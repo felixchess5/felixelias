@@ -106,7 +106,20 @@ class IndexPage extends React.Component {
             />
             <Footer timeout={this.state.timeout} />
           </div>
-          <div id="bg"></div>
+          <div id="bg">
+            <div className="aurora-overlay"></div>
+            <div className="planets">
+              <div className="planet sun"></div>
+              <div className="planet earth">
+                <div className="moon"></div>
+              </div>
+              <div className="planet saturn"></div>
+              <div className="planet jupiter"></div>
+              <div className="planet mars"></div>
+              <div className="planet venus"></div>
+              <div className="planet neptune"></div>
+            </div>
+          </div>
           <InteractiveEffects />
         </div>
       </Layout>

@@ -4,13 +4,15 @@ A modern, interactive portfolio website showcasing Felix Elias's professional ex
 
 ## 🚀 Features
 
-- **Space-Themed Design**: Custom deep space background with animated shooting stars
-- **Responsive Layout**: Optimized for all devices and screen sizes
-- **Interactive Navigation**: Smooth transitions between portfolio sections
+- **Immersive Space Theme**: Realistic planetary system with animated celestial bodies
+- **Interactive Planets**: Saturn with rings, Earth with orbiting Moon, Jupiter, Mars, Venus, Neptune, and the Sun
+- **Glassmorphism Design**: Modern blurred glass aesthetics matching content sections
+- **Mobile-Optimized**: Responsive design with performance-optimized animations
 - **Contact Form**: Functional contact form with email notifications
 - **Serverless Backend**: Netlify Functions for contact form processing
 - **Modern Stack**: Built with Gatsby.js and React
 - **Professional Content**: Comprehensive experience, education, and skills sections
+- **Cache-Resilient**: Advanced caching strategies for reliable mobile performance
 
 ## 🛠️ Technology Stack
 
@@ -48,10 +50,12 @@ A modern, interactive portfolio website showcasing Felix Elias's professional ex
 
 ## 🎨 Design Highlights
 
-- **Custom Space Background**: Procedurally generated starfield with nebula effects
-- **Animated Shooting Stars**: Realistic physics-based meteor animations
-- **Responsive Typography**: Fluid scaling for optimal readability
-- **Professional Color Palette**: Deep space blues and purples with accent colors
+- **Realistic Planetary System**: Authentic solar system with proper planet coloring and atmospheric effects
+- **Advanced Animations**: Orbital mechanics, lunar phases, and solar corona effects
+- **Glassmorphism Elements**: Subtle floating glass accents with backdrop blur
+- **Responsive Typography**: Fluid scaling for optimal readability across all devices
+- **Professional Color Palette**: Deep space blues and purples with realistic planetary hues
+- **Performance Optimized**: Mobile-specific optimizations for smooth performance
 
 ## 🚀 Quick Start
 
@@ -86,7 +90,9 @@ A modern, interactive portfolio website showcasing Felix Elias's professional ex
 
 - `netlify dev` - Start development server with functions (recommended)
 - `npm run develop` - Start Gatsby development server only (contact form won't work)
-- `npm run build` - Build for production
+- `npm run develop-clean` - Clean cache and start development server
+- `npm run build` - Build for production (includes cache cleaning)
+- `npm run build-fresh` - Complete cache wipe and build (recommended for deployment)
 - `npm run deploy` - Deploy to GitHub Pages
 - `npm run format` - Format code with Prettier
 
@@ -116,13 +122,20 @@ The contact form requires Gmail app password authentication:
 
 ## 🌟 Recent Updates (2025)
 
+### Latest Release (v2.1.0)
+- **Realistic Solar System**: Added Saturn, Earth with Moon, Mars, Venus, Neptune, and the Sun
+- **Advanced Planet Physics**: Authentic orbital mechanics and atmospheric effects  
+- **Mobile Cache Fix**: Comprehensive solution for mobile static query loading issues
+- **Dynamic Content Loading**: Error-resilient content system with fallback data
+- **Enhanced Build Process**: Cache-busting strategies and fresh build options
+
+### Previous Updates
 - **Functional Contact Form**: Added serverless backend with email notifications
 - **Smooth Animations**: Fixed background animation loops for seamless transitions
 - **Complete Visual Redesign**: Space theme with interactive elements
 - **Enhanced Responsive Design**: Optimized for mobile devices
 - **Modernized React Components**: Updated data structure and components
-- **Improved Performance**: Better accessibility and optimization
-- **Updated Dependencies**: Latest stable versions
+- **Glassmorphism UI**: Modern blurred glass design elements
 - **Comprehensive Animation System**: Shooting stars and particle effects
 - **Serverless Architecture**: Netlify Functions for backend functionality
 

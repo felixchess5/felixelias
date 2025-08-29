@@ -28,9 +28,11 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "build": "gatsby clean && gatsby build",
+    "build-fresh": "rm -rf .cache public && gatsby build",
+    "deploy": "gatsby clean && gatsby build --prefix-paths && gh-pages -d public",
     "develop": "gatsby develop",
+    "develop-clean": "gatsby clean && gatsby develop",
     "format": "prettier --write '**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
