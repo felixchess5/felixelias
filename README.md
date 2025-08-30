@@ -8,8 +8,7 @@ A modern, interactive portfolio website showcasing Felix Elias's professional ex
 - **Interactive Planets**: Saturn with rings, Earth with orbiting Moon, Jupiter, Mars, Venus, Neptune, and the Sun
 - **Glassmorphism Design**: Modern blurred glass aesthetics matching content sections
 - **Mobile-Optimized**: Responsive design with performance-optimized animations
-- **Contact Form**: Functional contact form with email notifications
-- **Serverless Backend**: Netlify Functions for contact form processing
+- **Contact Form**: Functional contact form with PHP backend for GoDaddy hosting
 - **Modern Stack**: Built with Gatsby.js and React
 - **Professional Content**: Comprehensive experience, education, and skills sections
 - **Cache-Resilient**: Advanced caching strategies for reliable mobile performance
@@ -18,8 +17,8 @@ A modern, interactive portfolio website showcasing Felix Elias's professional ex
 
 - **Framework**: Gatsby.js v2.32.13
 - **Frontend**: React 16.14.0
-- **Backend**: Netlify Functions (Serverless)
-- **Email**: Nodemailer with Gmail integration
+- **Backend**: PHP (GoDaddy hosting)
+- **Email**: PHP mail() function
 - **Styling**: Sass/SCSS with custom animations
 - **Icons**: FontAwesome
 - **Build Tools**: Node.js, npm
@@ -39,10 +38,7 @@ A modern, interactive portfolio website showcasing Felix Elias's professional ex
 │   ├── assets/scss/        # Styling and animations
 │   ├── images/            # Static images
 │   └── documents/         # Downloadable resume
-├── netlify/
-│   └── functions/          # Serverless functions
-│       ├── contact.js      # Contact form handler
-│       └── package.json    # Function dependencies
+├── contact.php             # Contact form handler (PHP)
 ├── static/                # Static assets
 ├── .env.example           # Environment variables template
 └── netlify.toml          # Netlify deployment configuration
@@ -68,28 +64,20 @@ A modern, interactive portfolio website showcasing Felix Elias's professional ex
 2. **Install dependencies**
    ```bash
    npm install
-   cd netlify/functions && npm install && cd ../..
    ```
 
-3. **Set up environment variables**
+3. **Start development server**
    ```bash
-   cp .env.example .env
-   # Edit .env with your Gmail credentials (see Contact Form Setup below)
+   npm run develop
    ```
+   *Note: Contact form will only work after deployment to GoDaddy*
 
-4. **Start development server**
-   ```bash
-   netlify dev
-   ```
-   *Note: Use `netlify dev` instead of `npm run develop` for full functionality including contact form*
-
-5. **Open in browser**
-   Navigate to `http://localhost:8888`
+4. **Open in browser**
+   Navigate to `http://localhost:8000`
 
 ## 📦 Available Scripts
 
-- `netlify dev` - Start development server with functions (recommended)
-- `npm run develop` - Start Gatsby development server only (contact form won't work)
+- `npm run develop` - Start Gatsby development server 
 - `npm run develop-clean` - Clean cache and start development server
 - `npm run build` - Build for production (includes cache cleaning)
 - `npm run build-fresh` - Complete cache wipe and build (recommended for deployment)
@@ -98,27 +86,23 @@ A modern, interactive portfolio website showcasing Felix Elias's professional ex
 
 ## 📧 Contact Form Setup
 
-The contact form requires Gmail app password authentication:
+The contact form uses PHP and will work on GoDaddy hosting:
 
-1. **Enable 2-Factor Authentication** on your Gmail account
-2. **Generate App Password**:
-   - Go to Google Account → Security → App passwords
-   - Create new app password for "Mail"
-3. **Configure Environment Variables**:
+### Production Deployment (GoDaddy)
+
+1. **Build the site**:
    ```bash
-   EMAIL_SERVICE=gmail
-   EMAIL_USER=your-email@gmail.com
-   EMAIL_PASS=your-16-character-app-password
+   npm run build
    ```
 
-### Production Deployment (Netlify)
+2. **Upload to GoDaddy**:
+   - Upload contents of `public/` folder to `public_html/`
+   - Upload `contact.php` to `public_html/`
 
-1. Connect repository to Netlify
-2. Add environment variables in Netlify dashboard:
-   - `EMAIL_SERVICE=gmail`
-   - `EMAIL_USER=felixelias5@gmail.com`
-   - `EMAIL_PASS=your-app-password`
-3. Deploy automatically builds with serverless functions
+3. **Contact form structure**:
+   - Form submits to `/contact.php`
+   - PHP processes form and sends email
+   - Works automatically on GoDaddy's PHP hosting
 
 ## 🌟 Recent Updates (2025)
 

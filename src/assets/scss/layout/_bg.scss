@@ -435,7 +435,7 @@
 			}
 		}
 		
-		// Shooting stars combined - both in one layer with multiple background images
+		// Realistic shooting stars with natural meteor appearance
 		&:before {
 			content: '';
 			position: absolute;
@@ -444,14 +444,14 @@
 			width: 100%;
 			height: 100%;
 			background-image: 
-				// Single shooting star - alternates direction
-				linear-gradient(90deg, transparent 0%, rgba(180, 200, 240, 0.2) 25%, rgba(200, 220, 255, 0.5) 60%, rgba(220, 240, 255, 0.8) 85%, rgba(255, 255, 255, 1) 100%);
+				// Meteor tail follows trajectory: bright head (bottom-right) to dim tail (top-left)
+				linear-gradient(315deg, rgba(255, 255, 255, 1) 0%, rgba(255, 180, 80, 0.8) 15%, rgba(255, 200, 100, 0.6) 30%, rgba(255, 220, 150, 0.3) 60%, rgba(255, 240, 200, 0.1) 80%, transparent 100%);
 			background-size: 
-				220px 3px;
+				150px 3px;
 			background-position: 
-				-240px 35%;
+				-200px 10%;
 			background-repeat: no-repeat;
-			animation: singleShootingStar 16s linear infinite;
+			animation: realisticShootingStar 20s ease-out infinite;
 			pointer-events: none;
 			z-index: 4;
 		}
@@ -683,60 +683,31 @@
 		}
 	}
 
-	// Single shooting star alternating directions (16s cycle)
-	@keyframes singleShootingStar {
-		// Start hidden off-screen left - left to right gradient
-		0% {
-			background-position: -240px 35%;
-			background-image: linear-gradient(90deg, transparent 0%, rgba(180, 200, 240, 0.2) 25%, rgba(200, 220, 255, 0.5) 60%, rgba(220, 240, 255, 0.8) 85%, rgba(255, 255, 255, 1) 100%);
+	// Simple realistic shooting star with diagonal background movement
+	@keyframes realisticShootingStar {
+		// Hidden phase
+		0%, 20% {
+			background-position: -200px 10%;
 			opacity: 0;
 		}
 		
-		// Shooting star 1: left to right (10-30% of cycle)
-		10% {
-			background-position: -240px 35%;
-			background-image: linear-gradient(90deg, transparent 0%, rgba(180, 200, 240, 0.2) 25%, rgba(200, 220, 255, 0.5) 60%, rgba(220, 240, 255, 0.8) 85%, rgba(255, 255, 255, 1) 100%);
+		// Meteor appears and moves diagonally across screen
+		25% {
+			background-position: -200px 10%;
+			opacity: 0.3;
+		}
+		45% {
+			background-position: calc(100% + 100px) 80%;
 			opacity: 1;
 		}
-		30% {
-			background-position: calc(100% + 60px) 35%;
-			background-image: linear-gradient(90deg, transparent 0%, rgba(180, 200, 240, 0.2) 25%, rgba(200, 220, 255, 0.5) 60%, rgba(220, 240, 255, 0.8) 85%, rgba(255, 255, 255, 1) 100%);
-			opacity: 1;
-		}
-		32% {
-			background-position: calc(100% + 60px) 35%;
-			background-image: linear-gradient(90deg, transparent 0%, rgba(180, 200, 240, 0.2) 25%, rgba(200, 220, 255, 0.5) 60%, rgba(220, 240, 255, 0.8) 85%, rgba(255, 255, 255, 1) 100%);
+		50% {
+			background-position: calc(100% + 150px) 90%;
 			opacity: 0;
 		}
 		
-		// Prepare for right-to-left: move to right edge and switch gradient
-		58% {
-			background-position: calc(100% + 240px) 70%;
-			background-image: linear-gradient(270deg, transparent 0%, rgba(200, 180, 220, 0.2) 25%, rgba(220, 200, 240, 0.5) 60%, rgba(240, 220, 255, 0.8) 85%, rgba(255, 255, 255, 1) 100%);
-			opacity: 0;
-		}
-		
-		// Shooting star 2: right to left (60-80% of cycle)
-		60% {
-			background-position: calc(100% + 240px) 70%;
-			background-image: linear-gradient(270deg, transparent 0%, rgba(200, 180, 220, 0.2) 25%, rgba(220, 200, 240, 0.5) 60%, rgba(240, 220, 255, 0.8) 85%, rgba(255, 255, 255, 1) 100%);
-			opacity: 1;
-		}
-		80% {
-			background-position: -60px 70%;
-			background-image: linear-gradient(270deg, transparent 0%, rgba(200, 180, 220, 0.2) 25%, rgba(220, 200, 240, 0.5) 60%, rgba(240, 220, 255, 0.8) 85%, rgba(255, 255, 255, 1) 100%);
-			opacity: 1;
-		}
-		82% {
-			background-position: -60px 70%;
-			background-image: linear-gradient(270deg, transparent 0%, rgba(200, 180, 220, 0.2) 25%, rgba(220, 200, 240, 0.5) 60%, rgba(240, 220, 255, 0.8) 85%, rgba(255, 255, 255, 1) 100%);
-			opacity: 0;
-		}
-		
-		// Reset for next cycle
-		98%, 100% {
-			background-position: -240px 35%;
-			background-image: linear-gradient(90deg, transparent 0%, rgba(180, 200, 240, 0.2) 25%, rgba(200, 220, 255, 0.5) 60%, rgba(220, 240, 255, 0.8) 85%, rgba(255, 255, 255, 1) 100%);
+		// Long pause (realistic meteor frequency)
+		51%, 100% {
+			background-position: calc(100% + 200px) 95%;
 			opacity: 0;
 		}
 	}
@@ -1064,14 +1035,25 @@
 			}
 			
 			&:before {
-				animation: singleShootingStar 24s linear infinite;
-				// Ensure shooting star layer also covers full mobile screen
+				animation: realisticShootingStar 25s ease-out infinite;
+				// Ensure shooting star layer covers mobile screen
 				width: 100vw;
 				height: 100vh;
 				height: 100dvh;
 				min-width: 100vw;
 				min-height: 100vh;
 				min-height: 100dvh;
+				// Smaller, more subtle meteors on mobile
+				background-size: 100px 2px;
+				// Mobile meteor tail follows trajectory: bright head to dim tail
+				background-image: linear-gradient(315deg, 
+					rgba(255, 255, 255, 0.8) 0%, 
+					rgba(255, 180, 80, 0.5) 20%, 
+					rgba(255, 200, 100, 0.3) 40%, 
+					rgba(255, 220, 150, 0.15) 65%, 
+					rgba(255, 240, 200, 0.08) 85%, 
+					transparent 100%
+				);
 			}
 		}
 	}

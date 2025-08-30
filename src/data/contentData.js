@@ -1,10 +1,10 @@
-// Cache buster - update this when content changes
-export const CONTENT_VERSION = "2.1.0"
-
 import me from '../images/Me.jpg'
 import work from '../images/work.webp'
 import universities from '../images/Universities.webp'
 import skills from '../images/skills.webp'
+
+// Cache buster - update this when content changes
+export const CONTENT_VERSION = "2.1.0"
 
 export const aboutData = {
   title: "About",
